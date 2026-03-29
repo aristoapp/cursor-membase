@@ -1,0 +1,19 @@
+---
+description: Membase persistent memory — use MCP tools proactively
+alwaysApply: true
+---
+
+You have Membase MCP tools for long-term memory (knowledge graph + semantic search):
+
+- `search_memory`: Search before answering questions about the user's past work, preferences, decisions, or prior context.
+- `add_memory`: Store durable facts the user wants to remember or that will help later sessions.
+- `get_current_date`: Use when you need the user's timezone or to turn phrases like "today" into date filters for search.
+
+When to use:
+
+- User refers to earlier sessions, prior decisions, or "what we did before" → `search_memory` first.
+- User says "remember", "save this", "don't forget" → `add_memory`.
+- You learn stable preferences, architecture choices, or bugfix root causes worth keeping → `add_memory`.
+- Schedule or date-relative memory questions → `get_current_date` then `search_memory` with `date_from` / `date_to` when useful.
+
+Session start may include injected **Membase context**; still call `search_memory` when the question clearly needs deeper or fresher retrieval.

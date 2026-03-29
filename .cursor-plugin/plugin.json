@@ -1,0 +1,15 @@
+{
+  "name": "membase-cursor",
+  "displayName": "Membase",
+  "version": "0.1.0",
+  "description": "Persistent memory for Cursor — Membase MCP plus session hooks",
+  "author": {
+    "name": "Membase",
+    "email": "support@membase.so"
+  },
+  "homepage": "https://membase.so",
+  "repository": "https://github.com/aristoapp/cursor-membase",
+  "license": "MIT",
+  "keywords": ["memory", "membase", "mcp", "ai", "cursor", "plugin"],
+  "logo": "assets/logo.svg"
+}
