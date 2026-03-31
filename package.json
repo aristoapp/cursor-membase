@@ -1,6 +1,6 @@
 {
   "name": "@membase/cursor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Membase plugin for Cursor — persistent memory with session hooks and MCP",
   "type": "module",
   "bin": {
