@@ -1,2 +1,8 @@
 dist/
 node_modules/
+src/
+scripts/
+tsconfig.json
+package.json
+bun.lock
+*.tgz
