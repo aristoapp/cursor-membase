@@ -4,27 +4,27 @@
 
 ## What it does
 
-- **MCP server** — registers `https://mcp.membase.so/mcp` so `search_memory`, `add_memory`, and `get_current_date` tools are available to the agent after OAuth Connect.
+- **Local MCP server** — runs `search_memory`, `add_memory`, and `get_current_date` tools via stdio, sharing credentials with session hooks.
 - **Session hooks** — injects user profile + recent memories at session start; captures the transcript to Membase at session end.
 - **Always-on rule** — instructs the agent to proactively use Membase MCP tools.
 
-## One-time setup
+## Setup
 
-1. **MCP**: After installing the plugin, click **Connect** next to the Membase MCP server in Cursor settings and complete OAuth.
-2. **Hooks** (optional): Run OAuth for the HTTP API (used by hooks only):
+Install the plugin from Cursor Marketplace, then run once in a terminal:
 
-   ```bash
-   bunx @membase/cursor@latest login
-   ```
+```bash
+bunx @membase/cursor@latest login
+```
 
-   Tokens are stored in `~/.config/membase/cursor-credentials.json`.
+This opens your browser to authenticate with Membase. Credentials are saved to `~/.config/membase/cursor-credentials.json`. Both MCP tools and session hooks use the same token — **one login and you're done.**
 
 ## CLI
 
 | Command | Description |
 |---------|-------------|
-| `membase-cursor login` | OAuth (PKCE) — save credentials for hooks |
+| `membase-cursor login` | OAuth (PKCE) — save credentials |
 | `membase-cursor logout` | Remove credentials file |
+| `membase-cursor mcp` | Start local MCP server (stdio) |
 | `membase-cursor help` | Usage |
 
 Options: `--api-url`, `--port`, `--credentials <path>`.

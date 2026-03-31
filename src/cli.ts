@@ -19,12 +19,13 @@ function printHelp(): void {
   console.log(`Membase Cursor plugin CLI
 
 Usage:
-  membase-cursor login [--api-url <url>] [--port <n>] [--credentials <path>]
+  membase-cursor login  [--api-url <url>] [--port <n>] [--credentials <path>]
   membase-cursor logout [--credentials <path>]
+  membase-cursor mcp    Start local MCP server (stdio transport)
   membase-cursor help
 
-Session hooks use the saved OAuth token at ${DEFAULT_CREDENTIALS_PATH} by default.
-Connect MCP in Cursor separately (OAuth) for add_memory / search_memory tools.
+Run 'login' once to authenticate. The local MCP server and session hooks
+share the saved token at ${DEFAULT_CREDENTIALS_PATH}.
 `);
 }
 
@@ -127,6 +128,10 @@ function cmdLogout(args: string[]): void {
   }
 }
 
+async function cmdMcp(): Promise<void> {
+  await import("./mcp-server");
+}
+
 async function main(): Promise<void> {
   const argv = process.argv.slice(2);
   const cmd = argv[0] ?? "help";
@@ -137,6 +142,8 @@ async function main(): Promise<void> {
       await cmdLogin(rest);
     } else if (cmd === "logout") {
       cmdLogout(rest);
+    } else if (cmd === "mcp") {
+      await cmdMcp();
     } else {
       printHelp();
     }

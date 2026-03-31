@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "membase": {
+      "command": "bunx",
+      "args": ["--bun", "@membase/cursor@latest", "mcp"]
+    }
+  }
+}
