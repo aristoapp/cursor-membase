@@ -5,4 +5,5 @@ scripts/
 tsconfig.json
 package.json
 bun.lock
+.mcp.json
 *.tgz

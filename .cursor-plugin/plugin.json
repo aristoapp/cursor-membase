@@ -1,22 +1,13 @@
 {
   "name": "membase-cursor",
   "displayName": "Membase",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Persistent memory for Cursor — Membase MCP plus session hooks. Profile and recent memories at session start, transcript capture at session end, and always-on rules for proactive memory usage.",
   "author": {
     "name": "Membase",
     "email": "support@membase.so"
   },
-  "homepage": "https://membase.so",
-  "repository": "https://github.com/aristoapp/cursor-membase",
   "license": "MIT",
-  "logo": "assets/logo.svg",
   "keywords": ["memory", "membase", "mcp", "ai", "cursor", "plugin"],
-  "category": "developer-tools",
-  "tags": ["memory", "mcp", "hooks", "knowledge-graph"],
-  "skills": "./skills/",
-  "rules": "./rules/",
-  "commands": "./commands/",
-  "hooks": "./hooks/hooks.json",
-  "mcpServers": "./.mcp.json"
+  "logo": "assets/logo.svg"
 }
