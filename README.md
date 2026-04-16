@@ -26,42 +26,27 @@ Give your [Cursor](https://cursor.com) agent persistent memory that survives acr
 
 ## Install
 
-Install from the [Cursor Marketplace](https://cursor.com/marketplace), then run once in a terminal:
-
-```bash
-bunx @membase/cursor@latest login
-```
-
-This opens your browser to authenticate with Membase. Credentials are saved to `~/.config/membase/cursor-credentials.json`. Both MCP tools and session hooks use the same token — **one login and you're done.**
+Install from the [Cursor Marketplace](https://cursor.com/marketplace), then click **Connect** next to the Membase MCP server in Cursor settings to complete OAuth. No CLI, no API keys — one click and you're done.
 
 ## What It Does
 
 ```txt
-Session Start
-    │
-    ▼
-┌─────────────────────────┐
-│  Profile + Recent       │  Injects user profile and recent
-│  (sessionStart hook)    │  memories as context
-└───────────┬─────────────┘
-            ▼
 ┌─────────────────────────┐
 │  AI Session             │  Agent uses search_memory, add_memory,
 │                         │  search_wiki, add_wiki, etc.
 └───────────┬─────────────┘
             ▼
 ┌─────────────────────────┐
-│  Transcript Capture     │  Saves conversation to Membase for
-│  (sessionEnd hook)      │  entity/relationship extraction
+│  Membase MCP Server     │  Remote server at mcp.membase.so
+│  (streamable HTTP)      │  OAuth handled by Cursor
 └───────────┬─────────────┘
             ▼
 ┌─────────────────────────┐
 │  Membase Backend        │  Hybrid vector search + knowledge graph
-│  (mcp.membase.so)       │
+│                         │  Entity/relationship extraction
 └─────────────────────────┘
 ```
 
-- **Session hooks** — Injects user profile + recent memories at session start; captures the transcript to Membase at session end.
 - **Always-on rule** — Instructs the agent to proactively use Membase MCP tools.
 - **Knowledge graph** — Unlike simple vector-only memory, Membase stores entities, relationships, and facts. Search results include related nodes and edges for richer context.
 
@@ -91,24 +76,6 @@ Session Start
 | `membase://profile` | User settings — display name, role, interests, timezone. |
 | `membase://recent` | Recent memories timeline (top 10). |
 
-## CLI
-
-```bash
-membase-cursor login          # OAuth (PKCE) — opens browser
-membase-cursor logout         # Remove credentials file
-membase-cursor mcp            # Start local MCP server (stdio)
-membase-cursor help           # Usage
-```
-
-Options: `--api-url`, `--port`, `--credentials <path>`.
-
-Or via npx/bunx:
-
-```bash
-bunx @membase/cursor@latest login
-bunx @membase/cursor@latest logout
-```
-
 ## How Membase Differs
 
 | | Simple vector memory | **Membase** |
@@ -119,13 +86,6 @@ bunx @membase/cursor@latest logout
 | **Knowledge** | Single store | Separate memory (personal) + wiki (factual knowledge) |
 | **Auth** | API key | OAuth 2.0 with PKCE (no secrets to manage) |
 | **Integrations** | None | Google Calendar, Gmail, Slack, Notion sync |
-
-## Development
-
-```bash
-bun install
-bun run build
-```
 
 ## Links
 

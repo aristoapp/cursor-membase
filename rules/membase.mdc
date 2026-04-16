@@ -33,4 +33,4 @@ When to use:
 - User asks about their schedule, meetings, or emails → `search_memory` with `sources` filter (google-calendar, gmail, slack).
 - For any user question, call **both** `search_memory` and `search_wiki` to combine personal context with factual knowledge.
 
-Session start may include injected **Membase context**; still call `search_memory` when the question clearly needs deeper or fresher retrieval.
+Read `membase://profile` for user settings and `membase://recent` for latest context. Still call `search_memory` when the question clearly needs deeper or fresher retrieval.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+Remove npm package dependency — pure plugin.
+
+- **Breaking**: Remove local MCP server (`bunx @membase/cursor mcp`); connect directly to remote `https://mcp.membase.so/mcp` via streamable HTTP
+- **Breaking**: Remove session hooks (sessionStart/sessionEnd); no local code required
+- **Breaking**: Remove `membase-login` and `membase-logout` commands; OAuth is now handled entirely by Cursor's MCP Connect flow
+- **Updated**: README, rules, and skills rewritten for zero-dependency setup
+
 ## 0.3.0
 
 Wiki tools and expanded skills.

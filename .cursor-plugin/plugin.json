@@ -1,8 +1,8 @@
 {
   "name": "membase-cursor",
   "displayName": "Membase",
-  "version": "0.3.0",
-  "description": "Persistent memory for Cursor — Membase MCP plus session hooks. Profile and recent memories at session start, transcript capture at session end, and always-on rules for proactive memory usage.",
+  "version": "0.4.0",
+  "description": "Persistent memory for Cursor — connect to Membase MCP for long-term memory with hybrid vector search and knowledge graph. No CLI or API keys needed.",
   "author": {
     "name": "Membase",
     "email": "support@aristo.so"
