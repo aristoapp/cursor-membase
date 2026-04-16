@@ -1,11 +1,12 @@
 {
   "name": "membase-cursor",
   "displayName": "Membase",
-  "version": "0.4.0",
-  "description": "Persistent memory for Cursor — connect to Membase MCP for long-term memory with hybrid vector search and knowledge graph. No CLI or API keys needed.",
+  "version": "0.4.1",
+  "description": "Persistent long-term memory for Cursor — connect to Membase MCP for long-term memory with hybrid vector search and knowledge graph. No CLI or API keys needed.",
   "author": {
     "name": "Membase",
-    "email": "support@aristo.so"
+    "email": "support@aristo.so",
+    "url": "https://membase.so"
   },
   "license": "MIT",
   "keywords": ["memory", "membase", "mcp", "ai", "cursor", "plugin"],
